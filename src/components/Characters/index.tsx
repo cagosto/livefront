@@ -24,7 +24,7 @@ export default function Characters({ data }: CharacterProps) {
         {data
           .filter((v) => v.name.toLowerCase().includes(searchTerm))
           .map((c) => (
-            <CharacterItem character={c} key={c.id} />
+            <CharacterItem searchTerm={searchTerm} character={c} key={c.id} />
           ))}
       </div>
     </div>

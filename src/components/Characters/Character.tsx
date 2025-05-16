@@ -22,7 +22,7 @@ export default function CharacterItem({
               className={`${parts.highlight ? 'font-bold' : 'font-normal'}`}
               key={index}
             >
-              {parts.highlight}
+              {parts.text}
             </span>
           ))}
         </h2>
