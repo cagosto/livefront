@@ -4,6 +4,10 @@ import Characters from '@/components/Characters';
 export default async function Home() {
   const c = await getAllCharacters();
 
-  return <Characters data={c} />;
+  return (
+    <section className="p-5">
+      <Characters data={c} />
+    </section>
+  );
 }
 

@@ -1,27 +1,32 @@
+'use client';
+
 import { Character } from '@/interfaces/characters';
-import Image from 'next/image';
+import CharacterItem from './Character';
+import { ChangeEvent, useState } from 'react';
 
 interface CharacterProps {
   data: Character[];
 }
 export default function Characters({ data }: CharacterProps) {
+  const [searchTerm, setSearchTerm] = useState('');
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setSearchTerm(e.target.value);
+  };
   return (
-    <div className="grid grid-cols-4">
-      {data.map((c) => (
-        <div key={c.id}>
-          <p>{c.name}</p>
-          {c.image && (
-            <Image
-              src={c.image}
-              alt={c.name}
-              width={0}
-              height={0}
-              sizes="100vw"
-              className="w-full h-full object-cover"
-            />
-          )}
-        </div>
-      ))}
+    <div>
+      <input
+        type="search"
+        value={searchTerm}
+        className="rounded border-2 border-accent bg-white text-primary"
+        onChange={handleChange}
+      />
+      <div className="grid grid-cols-4 gap-3">
+        {data
+          .filter((v) => v.name.toLowerCase().includes(searchTerm))
+          .map((c) => (
+            <CharacterItem character={c} key={c.id} />
+          ))}
+      </div>
     </div>
   );
 }
