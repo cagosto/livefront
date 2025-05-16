@@ -14,7 +14,7 @@ export default function CharacterItem({
   const matches = match(character.name, searchTerm, { insideWords: true });
   const parts = parse(character.name, matches);
   return (
-    <div className="bg-secondary rounded p-2 relative overflow-hidden group">
+    <div className="bg-secondary rounded p-2 relative overflow-hidden group shadow shadow-amber-100">
       <div className="absolute scale-x-0 bottom-0 top-0 p-1 bg-accent/80 right-0 left-0 transition group-hover:scale-x-100 origin-right group-hover:origin-left">
         <h2>
           {parts.map((parts, index) => (

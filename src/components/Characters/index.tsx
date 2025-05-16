@@ -13,14 +13,19 @@ export default function Characters({ data }: CharacterProps) {
     setSearchTerm(e.target.value);
   };
   return (
-    <div>
-      <input
-        type="search"
-        value={searchTerm}
-        className="rounded border-2 border-accent bg-white text-primary"
-        onChange={handleChange}
-      />
-      <div className="grid grid-cols-4 gap-3">
+    <div className="flex flex-col gap-6">
+      <div className="sticky top-0 z-50 bg-primary p-9">
+        <div className="flex flex-row gap-3 items-center">
+          <label>Search:</label>
+          <input
+            type="search"
+            value={searchTerm}
+            className="rounded border-2 border-accent bg-secondary text-text"
+            onChange={handleChange}
+          />
+        </div>
+      </div>
+      <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {data
           .filter((v) => v.name.toLowerCase().includes(searchTerm))
           .map((c) => (
