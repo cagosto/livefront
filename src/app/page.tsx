@@ -5,7 +5,7 @@ export default async function Home() {
   const c = await getAllCharacters();
 
   return (
-    <section className="p-5">
+    <section>
       <Characters data={c} />
     </section>
   );
