@@ -13,6 +13,30 @@
   --color-accent: var(--accent);
   --color-text: var(--text);
   --font-sans: var(--font-inter);
+  --font-logo: var(--font-medieval);
+}
+
+@layer utilities {
+  .bg-size-200 {
+    background-size: 200% 200%;
+  }
+
+  .animate-gradient {
+    animation: gradientLoop 6s linear infinite;
+  }
+}
+
+/* Define the keyframe animation for gradient looping */
+@keyframes gradientLoop {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 body {

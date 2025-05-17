@@ -12,3 +12,14 @@ export const getAllCharacters = async () => {
   return characters as Character[];
 };
 
+export const getCharacterInfo = async (name: string) => {
+  const character = await potterApi
+    .get(`characters/${name}`)
+    .then((res) => res.data)
+    .catch((error) => {
+      throw error;
+    });
+
+  return character as Character;
+};
+
